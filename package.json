@@ -1,0 +1,17 @@
+{
+  "name": "about-me-backend",
+  "version": "1.0.0",
+  "description": "Backend API for About Me app using Express.js and MongoDB",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
