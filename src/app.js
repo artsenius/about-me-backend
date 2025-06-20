@@ -15,11 +15,9 @@ app.use('/api/test-runs', require('./routes/testRunRoutes'));
 const PORT = process.env.PORT || 5000;
 
 // Start server only after a successful DB connection
-const startServer = async () => {
+(async () => {
   await connectDB();
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
-};
-
-startServer();
+})();
