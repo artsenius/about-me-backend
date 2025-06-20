@@ -1,6 +1,6 @@
 # About Me Backend
 
-This backend is designed to store Playwright test runs history.
+This backend is designed to store Playwright test run history.
 
 ## Setup
 
