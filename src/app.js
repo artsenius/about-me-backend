@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.send('About Me Backend API');
 });
 
-app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/test-runs', require('./routes/testRunRoutes'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

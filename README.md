@@ -1,6 +1,6 @@
 # About Me Backend
 
-This is a simple Express.js + MongoDB backend for the About Me app.
+This backend is designed to store Playwright test runs history.
 
 ## Setup
 
@@ -18,5 +18,19 @@ This is a simple Express.js + MongoDB backend for the About Me app.
    ```
 
 ## API Endpoints
-- `GET /api/users` - List all users
-- `POST /api/users` - Create a new user
+
+### Playwright Test Runs
+- `GET /api/test-runs` - List all test runs (sorted by start time, newest first)
+- `POST /api/test-runs` - Create a new test run
+
+#### Example payload for creating a test run:
+```json
+{
+  "project": "my-playwright-project",
+  "status": "passed",
+  "startedAt": "2025-06-20T10:00:00Z",
+  "finishedAt": "2025-06-20T10:05:00Z",
+  "duration": 300000,
+  "results": { "passed": 10, "failed": 0 }
+}
+```
