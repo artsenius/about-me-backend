@@ -4,8 +4,6 @@ const express = require('express');
 const connectDB = require('./config/db');
 
 const app = express();
-connectDB();
-
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -15,6 +13,13 @@ app.get('/', (req, res) => {
 app.use('/api/test-runs', require('./routes/testRunRoutes'));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+// Start server only after a successful DB connection
+const startServer = async () => {
+  await connectDB();
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
+
+startServer();
