@@ -1,9 +1,22 @@
 console.log('App is starting...');
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const connectDB = require('./config/db');
 
 const app = express();
+
+// CORS configuration
+const corsOptions = {
+    origin: [
+        'http://localhost:3000',
+        'https://artsenius.github.io'
+    ],
+    methods: ['GET', 'POST'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get('/', (req, res) => {
