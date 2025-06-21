@@ -13,7 +13,8 @@ exports.getTestRunsSummary = async (req, res) => {
     try {
         const testRuns = await TestRun.find()
             .select('project status startedAt finishedAt _id results.passed results.failed')
-            .sort({ startedAt: -1 });
+            .sort({ startedAt: -1 })
+            .limit(20); // Limit to last 20 records
         res.json(testRuns);
     } catch (err) {
         res.status(500).json({ message: err.message });
