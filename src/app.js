@@ -8,12 +8,12 @@ const app = express();
 
 // CORS configuration
 const corsOptions = {
-    origin: [
-        'http://localhost:3000',
-        'https://artsenius.github.io'
-    ],
-    methods: ['GET', 'POST'],
-    credentials: true
+  origin: [
+    'http://localhost:3000',
+    'https://artsenius.github.io'
+  ],
+  methods: ['GET', 'POST'],
+  credentials: true
 };
 
 app.use(cors(corsOptions));
