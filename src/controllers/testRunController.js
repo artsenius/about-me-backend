@@ -11,10 +11,14 @@ exports.getTestRuns = async (req, res) => {
 
 exports.getTestRunsSummary = async (req, res) => {
     try {
+        let limit = parseInt(req.query.limit, 10);
+        if (isNaN(limit) || limit <= 0) {
+            limit = 10;
+        }
         const testRuns = await TestRun.find()
             .select('project status startedAt finishedAt _id results.passed results.failed')
             .sort({ startedAt: -1 })
-            .limit(20); // Limit to last 20 records
+            .limit(limit); // Limit to last N records
         res.json(testRuns);
     } catch (err) {
         res.status(500).json({ message: err.message });
