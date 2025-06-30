@@ -35,16 +35,16 @@ describe('GET /api/test-runs/summary', () => {
     expect(res.body).toEqual([{ id: 1 }, { id: 2 }]);
   });
 
-  it('defaults to 20 if limit is not provided or invalid', async () => {
+  it('defaults to 10 if limit is not provided or invalid', async () => {
     const mockSelect = jest.fn().mockReturnThis();
     const mockSort = jest.fn().mockReturnThis();
     const mockLimit = jest.fn().mockResolvedValue([]);
     TestRun.find.mockReturnValue({ select: mockSelect, sort: mockSort, limit: mockLimit });
 
     await request(app).get('/api/test-runs/summary');
-    expect(mockLimit).toHaveBeenCalledWith(20);
+    expect(mockLimit).toHaveBeenCalledWith(10);
 
     await request(app).get('/api/test-runs/summary?limit=invalid');
-    expect(mockLimit).toHaveBeenCalledWith(20);
+    expect(mockLimit).toHaveBeenCalledWith(10);
   });
 });
