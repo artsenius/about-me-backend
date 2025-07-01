@@ -10,7 +10,8 @@ const app = express();
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://artsenius.github.io'
+    'https://artsenius.github.io',
+    'https://www.arthursenko.com'
   ],
   methods: ['GET', 'POST'],
   credentials: true
